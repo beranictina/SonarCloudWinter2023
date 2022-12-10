@@ -47,7 +47,7 @@ public class MeasurementPostController {
 			ok=false;
 		}
 		if (m.avgTemperature() > product.getMaxMeasure()) {
-			log.info(()->"/product_measurement sent: "+m+"; product: "+product+"; ACTION NEEDED-higher");
+			log.info(()->"/product_measurement sent: "+m+"; product: "+product+"; ACTION NEEDED-visje");
 			ok=false;
 		}
 
