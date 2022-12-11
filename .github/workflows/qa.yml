@@ -50,11 +50,13 @@ jobs:
         with:
             fetch-depth: 0
       - name: SonarCloud Scan
-        uses: |
-          SonarSource/sonarcloud-github-action@master
-          SonarSource/sonarqube-quality-gate-action@master
+        uses: SonarSource/sonarcloud-github-action@master
         env:
             GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
             SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
         with:
           projectBaseDir: measurements_frontend/measurements
+      - name: SonarQube Quality Gate check
+        uses: sonarsource/sonarqube-quality-gate-action@master
+        env:
+            SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
