@@ -45,9 +45,10 @@ jobs:
         uses: actions/setup-node@v1
         with:
             node-version: ${{ matrix.node-version }}
-      - working-directory: measurements_frontend/measurements/
-      - run: npm install
-      - run: npm run build --if-present
+      - run: |
+          cd measurements_frontend/measurements/
+          npm install
+          npm run build --if-present
       - name: SonarCloud Scan
         uses: SonarSource/sonarcloud-github-action@master
         env:
