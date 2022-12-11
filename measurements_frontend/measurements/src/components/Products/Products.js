@@ -28,8 +28,8 @@ const Products = () => {
         setEditId("");
         fetchData();
     }
-    const deleteProduct = async (id) => {
-        const result = await measurementsApi.delete(`/products/${id}`);
+    const deleteProduct = async (_id) => {
+        await measurementsApi.delete(`/products/${_id}`);
         fetchData();
     }
     const editProduct = (id) => {

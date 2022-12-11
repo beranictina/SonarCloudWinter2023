@@ -23,7 +23,7 @@ export default function EditProduct({ open, handleClose, id}) {
     const [maxMeasure, setMaxMeasure] = React.useState("");
     const [minMeasure, setMinMeasure] = React.useState("");
 
-    React.useEffect(() =>{
+    React.useEffect(() => {
         const fetchData = async () => {
             const result = await measurementsApi.get(`/products/${id}`);
             if(result.request.status === 200){
@@ -35,7 +35,7 @@ export default function EditProduct({ open, handleClose, id}) {
         if(open && id){
             fetchData();
         }
-    }, [open]);
+    }, [open, id]);
     const editProduct = async () => {
         const result = await measurementsApi.put(`/products/${id}`, {
             name: name,
