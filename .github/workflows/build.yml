@@ -6,8 +6,8 @@ on:
   pull_request:
     types: [opened, synchronize, reopened]
 jobs:
-  sonarcloudscan:
-    name: SonarCloudScan
+  sonarcloudscan1:
+    name: SonarCloudScan1
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -41,18 +41,18 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Needed to get PR information, if any
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-        run: mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=beranictina_SonarCloudWinter2023
-#  sonarcloudScan2:
-#    name: SonarCloudScan2
-#    runs-on: ubuntu-latest
-#    steps:
-##      - uses: actions/checkout@v2
-##        with:
-##            fetch-depth: 0
-#      - name: SonarCloud Scan
-#        uses: SonarSource/sonarcloud-github-action@master
-#        env:
-#            GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-#            SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-##        with:
-##          projectBaseDir: measurements_frontend/measurements
+        run: mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=beranictina_SonarCloudWinter2023_1
+  sonarcloudScan2:
+    name: SonarCloudScan2
+    runs-on: ubuntu-latest
+    steps:
+#      - uses: actions/checkout@v2
+#        with:
+#            fetch-depth: 0
+      - name: SonarCloud Scan
+        uses: SonarSource/sonarcloud-github-action@master
+        env:
+            GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+            SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+#        with:
+#          projectBaseDir: measurements_frontend/measurements
