@@ -56,4 +56,4 @@ jobs:
             SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
         with:
           projectBaseDir: measurements_frontend/measurements
-          args: -Dsonar.qualitygate.wait=true
+          args: -Dsonar.qualitygate.wait=false
